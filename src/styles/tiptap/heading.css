@@ -13,25 +13,24 @@
 
 	h1,
 	h2 {
-		margin-top: 3.5rem;
 		margin-bottom: 1.5rem;
 	}
 
 	h1 {
-		font-size: 1.4rem;
+		font-size: 32px;
 	}
 
 	h2 {
-		font-size: 1.2rem;
+		font-size: 24px;
 	}
 
 	h3 {
-		font-size: 1.1rem;
+		font-size: 20px;
 	}
 
 	h4,
 	h5,
 	h6 {
-		font-size: 1rem;
+		font-size: 18px;
 	}
 }

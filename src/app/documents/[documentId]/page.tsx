@@ -1,5 +1,5 @@
 import Editor from "@/components/Editor";
-import { Button } from "@/components/ui/button";
+import Toolbar from "@/components/Toolbar";
 
 interface DocumentIdPageProps {
 	params: Promise<{ documentId: string }>;
@@ -8,7 +8,8 @@ interface DocumentIdPageProps {
 async function DocumentIdPage({ params }: DocumentIdPageProps) {
 	const { documentId } = await params;
 	return (
-		<div>
+		<div className="min-h-screen">
+			<Toolbar />
 			<Editor />
 		</div>
 	);

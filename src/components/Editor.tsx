@@ -12,9 +12,27 @@ import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 import Image from "@tiptap/extension-image";
 import ImageResize from "tiptap-extension-resize-image";
+import Underline from "@tiptap/extension-underline";
+import FontFamily from "@tiptap/extension-font-family";
+import TextStyle from "@tiptap/extension-text-style";
+import Heading from "@tiptap/extension-heading";
+import Highlight from "@tiptap/extension-highlight";
+import Color from "@tiptap/extension-color";
+
+import useEditorStore from "@/store/useEditorStore";
 
 function Editor() {
+	const { setEditor } = useEditorStore();
+
 	const editor = useEditor({
+		onCreate: ({ editor }) => setEditor(editor), // set the editor on the store when it's created
+		onDestroy: () => setEditor(null),
+		onUpdate: ({ editor }) => setEditor(editor),
+		onSelectionUpdate: ({ editor }) => setEditor(editor),
+		onTransaction: ({ editor }) => setEditor(editor),
+		onFocus: ({ editor }) => setEditor(editor),
+		onBlur: ({ editor }) => setEditor(editor),
+		onContentError: ({ editor }) => setEditor(editor),
 		extensions: [
 			StarterKit,
 			TaskItem.configure({
@@ -29,23 +47,16 @@ function Editor() {
 			TableCell,
 			Image,
 			ImageResize,
+			Underline,
+			FontFamily,
+			TextStyle,
+			Heading.configure({
+				levels: [1, 2, 3],
+			}),
+			Highlight.configure({ multicolor: true }),
+			Color,
 		],
-		content: `
-        <table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th colspan="3">Description</th>
-            </tr>
-            <tr>
-              <td>Cyndi Lauper</td>
-              <td>Singer</td>
-              <td>Songwriter</td>
-              <td>Actress</td>
-            </tr>
-          </tbody>
-        </table>
-      `,
+		content: "Hello World!",
 		editorProps: {
 			attributes: {
 				style: "padding-left:56px; padding-right:56px;",

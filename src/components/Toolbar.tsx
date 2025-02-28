@@ -1,0 +1,112 @@
+"use client";
+
+import {
+	BoldIcon,
+	ItalicIcon,
+	ListTodoIcon,
+	LucideIcon,
+	MessageSquarePlusIcon,
+	PrinterIcon,
+	Redo2Icon,
+	RemoveFormattingIcon,
+	UnderlineIcon,
+	Undo2Icon,
+} from "lucide-react";
+import ToolbarButton from "./ToolbarButton";
+import useEditorStore from "@/store/useEditorStore";
+import { Separator } from "./ui/separator";
+import FontFamilyButton from "./FontFamilyButton";
+import HeadingButton from "./HeadingButton";
+import TextColorButton from "./TextColorButton";
+import TextHighlightButton from "./TextHighlightButton";
+
+function Toolbar() {
+	const { editor } = useEditorStore();
+	const sections: {
+		label: string;
+		icon: LucideIcon;
+		onClick: () => void;
+		isActive?: boolean;
+	}[][] = [
+		[
+			{
+				label: "Undo",
+				icon: Undo2Icon,
+				onClick: () => editor?.chain().focus().undo().run(),
+			},
+			{
+				label: "Redo",
+				icon: Redo2Icon,
+				onClick: () => editor?.chain().focus().redo().run(),
+			},
+			{
+				label: "Print",
+				icon: PrinterIcon,
+				onClick: () => window.print(),
+			},
+		],
+		[
+			{
+				label: "Bold",
+				icon: BoldIcon,
+				onClick: () => editor?.chain().focus().toggleBold().run(),
+				isActive: editor?.isActive("bold"),
+			},
+			{
+				label: "Italic",
+				icon: ItalicIcon,
+				onClick: () => editor?.chain().focus().toggleItalic().run(),
+				isActive: editor?.isActive("italic"),
+			},
+			{
+				label: "Underline",
+				icon: UnderlineIcon,
+				onClick: () => editor?.chain().focus().toggleUnderline().run(),
+				isActive: editor?.isActive("underline"),
+			},
+		],
+		[
+			{
+				label: "Comment",
+				icon: MessageSquarePlusIcon,
+				onClick: () => console.log("Comment"),
+			},
+			{
+				label: "List Todo",
+				icon: ListTodoIcon,
+				onClick: () => editor?.chain().focus().toggleTaskList().run(),
+				isActive: editor?.isActive("taskList"),
+			},
+			{
+				label: "Remove Format",
+				icon: RemoveFormattingIcon,
+				onClick: () => editor?.chain().focus().unsetAllMarks().run(),
+			},
+		],
+	];
+	return (
+		<div className="bg-gray-200 px-2 py-2 rounded-b-md min-h-[40px] flex items-center gap-x-1 overflow-x-auto">
+			{sections?.[0].map((item) => (
+				<ToolbarButton key={item.label} {...item} />
+			))}
+			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			<HeadingButton />
+			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			<FontFamilyButton />
+			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			{sections?.[1].map((item) => (
+				<ToolbarButton key={item.label} {...item} />
+			))}
+			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			<TextColorButton />
+			<TextHighlightButton />
+			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			{sections?.[2].map((item) => (
+				<ToolbarButton key={item.label} {...item} />
+			))}
+			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+		</div>
+	);
+}
+
+export default Toolbar;

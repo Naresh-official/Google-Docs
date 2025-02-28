@@ -6,4 +6,8 @@
 
 .tiptap {
 	caret-color: hsl(var(--primary));
+	mark {
+		padding: 4px 4px;
+		border-radius: 10px;
+	}
 }
