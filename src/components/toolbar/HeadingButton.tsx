@@ -63,7 +63,10 @@ function HeadingButton() {
 					}
 				}}
 			>
-				<SelectTrigger className="w-[180px] p-1.5 bg-gray-100 text-black">
+				<SelectTrigger
+					className="w-[180px] p-1.5 bg-gray-100 text-black hover:bg-primary/20 hover:border-gray-500 hover:border"
+					title="Text Styles"
+				>
 					<SelectValue placeholder="Text Styles" />
 				</SelectTrigger>
 				<SelectContent>

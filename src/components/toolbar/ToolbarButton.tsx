@@ -6,9 +6,15 @@ interface ToolbarButtonProps {
 	onClick?: () => void;
 	isActive?: boolean;
 	icon: LucideIcon;
+	label: string;
 }
 
-function ToolbarButton({ onClick, isActive, icon: Icon }: ToolbarButtonProps) {
+function ToolbarButton({
+	onClick,
+	isActive,
+	icon: Icon,
+	label,
+}: ToolbarButtonProps) {
 	return (
 		<Button
 			onClick={onClick}
@@ -18,6 +24,7 @@ function ToolbarButton({ onClick, isActive, icon: Icon }: ToolbarButtonProps) {
 					? "bg-primary text-white"
 					: " hover:bg-primary/20 hover:border-gray-500 hover:border"
 			)}
+			title={label}
 		>
 			<Icon className="size-4" />
 		</Button>

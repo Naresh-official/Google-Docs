@@ -28,6 +28,7 @@ function LinkButton() {
 					<Button
 						variant={"ghost"}
 						className="p-1.5 bg-gray-100 min-w-10 hover:border-gray-500 hover:border hover:bg-primary/20"
+						title="Add Link"
 					>
 						<Link2Icon style={{ color: value }} />
 					</Button>

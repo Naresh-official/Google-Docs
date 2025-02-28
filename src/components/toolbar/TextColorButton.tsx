@@ -43,6 +43,7 @@ function TextColorButton() {
 					<Button
 						variant={"ghost"}
 						className="p-1.5 bg-gray-100 min-w-10 hover:border-gray-500 hover:border hover:bg-primary/20"
+						title="Text Color"
 					>
 						<Baseline style={{ color: value }} />
 					</Button>

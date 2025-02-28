@@ -3,6 +3,8 @@
 import {
 	BoldIcon,
 	ItalicIcon,
+	List,
+	ListOrdered,
 	ListTodoIcon,
 	LucideIcon,
 	MessageSquarePlusIcon,
@@ -21,6 +23,8 @@ import TextColorButton from "./TextColorButton";
 import TextHighlightButton from "./TextHighlightButton";
 import LinkButton from "./LinkButton";
 import ImageButton from "./ImageButton";
+import TextAlignButton from "./TextAlignButton";
+import FontSizeButton from "./FontSizeButton";
 
 function Toolbar() {
 	const { editor } = useEditorStore();
@@ -85,30 +89,59 @@ function Toolbar() {
 				onClick: () => editor?.chain().focus().unsetAllMarks().run(),
 			},
 		],
+		[
+			{
+				label: "Bullet List",
+				icon: List,
+				onClick: () => editor?.chain().focus().toggleBulletList().run(),
+				isActive: editor?.isActive("bulletList"),
+			},
+			{
+				label: "Numbered List",
+				icon: ListOrdered,
+				onClick: () =>
+					editor?.chain().focus().toggleOrderedList().run(),
+				isActive: editor?.isActive("orderedList"),
+			},
+		],
 	];
 	return (
-		<div className="bg-gray-200 px-2 py-2 rounded-b-md min-h-[40px] flex items-center gap-x-1 overflow-x-auto">
+		<div className="bg-gray-300 px-2 py-2 rounded-2xl m-2 min-h-[40px] flex items-center gap-x-1 overflow-x-auto">
+			{/* Undo , Redo , Print */}
 			{sections?.[0].map((item) => (
 				<ToolbarButton key={item.label} {...item} />
 			))}
 			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			{/* Text Styles */}
 			<HeadingButton />
 			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			{/* Font Family */}
 			<FontFamilyButton />
 			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			{/* Bold , Italic , Underline */}
 			{sections?.[1].map((item) => (
 				<ToolbarButton key={item.label} {...item} />
 			))}
 			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			{/* Text Color , Highlight */}
 			<TextColorButton />
 			<TextHighlightButton />
 			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			{/* Comment , Task , Clear Formating */}
 			{sections?.[2].map((item) => (
 				<ToolbarButton key={item.label} {...item} />
 			))}
 			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			{/* Link , Image Link */}
 			<LinkButton />
 			<ImageButton />
+			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			{/* Alignment */}
+			<TextAlignButton />
+			{sections?.[3].map((item) => (
+				<ToolbarButton key={item.label} {...item} />
+			))}
+			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
 		</div>
 	);
 }

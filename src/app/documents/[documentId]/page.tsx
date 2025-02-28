@@ -1,4 +1,4 @@
-import Editor from "@/components/toolbar/Editor";
+import Editor from "@/components/Editor";
 import Toolbar from "@/components/toolbar/Toolbar";
 
 interface DocumentIdPageProps {
