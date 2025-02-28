@@ -1,0 +1,9 @@
+@import "./tiptap/heading.css";
+@import "./tiptap/list.css";
+@import "./tiptap/task.css";
+@import "./tiptap/table.css";
+@import "./tiptap/image.css";
+
+.tiptap {
+	caret-color: hsl(var(--primary));
+}
