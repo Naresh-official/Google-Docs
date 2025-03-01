@@ -3,6 +3,7 @@
 @import "./tiptap/task.css";
 @import "./tiptap/table.css";
 @import "./tiptap/image.css";
+@import "./tiptap/link.css";
 
 .tiptap {
 	caret-color: hsl(var(--primary));

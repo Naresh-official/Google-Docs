@@ -14,11 +14,13 @@ import {
 } from "lucide-react";
 import ToolbarButton from "./ToolbarButton";
 import useEditorStore from "@/store/useEditorStore";
-import { Separator } from "./ui/separator";
+import { Separator } from "../ui/separator";
 import FontFamilyButton from "./FontFamilyButton";
 import HeadingButton from "./HeadingButton";
 import TextColorButton from "./TextColorButton";
 import TextHighlightButton from "./TextHighlightButton";
+import LinkButton from "./LinkButton";
+import ImageButton from "./ImageButton";
 
 function Toolbar() {
 	const { editor } = useEditorStore();
@@ -105,6 +107,8 @@ function Toolbar() {
 				<ToolbarButton key={item.label} {...item} />
 			))}
 			<Separator orientation="vertical" className="bg-primary mx-1 h-5" />
+			<LinkButton />
+			<ImageButton />
 		</div>
 	);
 }

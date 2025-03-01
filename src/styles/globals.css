@@ -1,4 +1,4 @@
-@import "../styles/tiptap.css";
+@import "./tiptap.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

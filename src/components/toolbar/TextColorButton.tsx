@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import useEditorStore from "@/store/useEditorStore";
 import { Baseline } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 function TextColorButton() {
 	const { editor } = useEditorStore();
@@ -39,10 +39,10 @@ function TextColorButton() {
 	return (
 		<div>
 			<DropdownMenu>
-				<DropdownMenuTrigger>
+				<DropdownMenuTrigger asChild>
 					<Button
 						variant={"ghost"}
-						className="p-1.5 bg-gray-100 min-w-10 hover:border-gray-500 hover:border"
+						className="p-1.5 bg-gray-100 min-w-10 hover:border-gray-500 hover:border hover:bg-primary/20"
 					>
 						<Baseline style={{ color: value }} />
 					</Button>

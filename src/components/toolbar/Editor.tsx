@@ -18,6 +18,7 @@ import TextStyle from "@tiptap/extension-text-style";
 import Heading from "@tiptap/extension-heading";
 import Highlight from "@tiptap/extension-highlight";
 import Color from "@tiptap/extension-color";
+import Link from "@tiptap/extension-link";
 
 import useEditorStore from "@/store/useEditorStore";
 
@@ -55,6 +56,11 @@ function Editor() {
 			}),
 			Highlight.configure({ multicolor: true }),
 			Color,
+			Link.configure({
+				openOnClick: false,
+				autolink: true,
+				defaultProtocol: "https://",
+			}),
 		],
 		content: "Hello World!",
 		editorProps: {

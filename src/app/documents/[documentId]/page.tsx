@@ -1,5 +1,5 @@
-import Editor from "@/components/Editor";
-import Toolbar from "@/components/Toolbar";
+import Editor from "@/components/toolbar/Editor";
+import Toolbar from "@/components/toolbar/Toolbar";
 
 interface DocumentIdPageProps {
 	params: Promise<{ documentId: string }>;

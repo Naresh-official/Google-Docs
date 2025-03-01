@@ -54,7 +54,7 @@ function FontFamilyButton() {
 					editor?.chain().focus().setFontFamily(value).run()
 				}
 			>
-				<SelectTrigger className="w-[180px] p-1.5 bg-gray-100 text-black">
+				<SelectTrigger className="w-[180px] p-1.5 bg-gray-100 text-black hover:bg-primary/20 hover:border-gray-500 hover:border">
 					<SelectValue placeholder="Font Family" />
 				</SelectTrigger>
 				<SelectContent>
