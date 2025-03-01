@@ -3,7 +3,6 @@
 @import "./tiptap/task.css";
 @import "./tiptap/table.css";
 @import "./tiptap/image.css";
-<<<<<<< HEAD
 @import "./tiptap/link.css";
 
 .tiptap {
@@ -12,9 +11,4 @@
 		padding: 4px 4px;
 		border-radius: 10px;
 	}
-=======
-
-.tiptap {
-	caret-color: hsl(var(--primary));
->>>>>>> 2050b34 (add(editor) : add tiptap editors and extenstions; update custom css for tiptap components)
 }

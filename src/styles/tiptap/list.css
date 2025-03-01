@@ -3,10 +3,6 @@
 	ul,
 	ol {
 		padding: 0 1rem;
-<<<<<<< HEAD
-=======
-		margin: 1.25rem 1rem 1.25rem 0.4rem;
->>>>>>> 2050b34 (add(editor) : add tiptap editors and extenstions; update custom css for tiptap components)
 	}
 	ul li {
 		list-style-type: disc;

@@ -24,7 +24,6 @@ import TextHighlightButton from "./TextHighlightButton";
 import LinkButton from "./LinkButton";
 import ImageButton from "./ImageButton";
 import TextAlignButton from "./TextAlignButton";
-import FontSizeButton from "./FontSizeButton";
 
 function Toolbar() {
 	const { editor } = useEditorStore();
