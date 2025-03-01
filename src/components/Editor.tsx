@@ -12,6 +12,7 @@ import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 import Image from "@tiptap/extension-image";
 import ImageResize from "tiptap-extension-resize-image";
+<<<<<<< HEAD
 import Underline from "@tiptap/extension-underline";
 import FontFamily from "@tiptap/extension-font-family";
 import TextStyle from "@tiptap/extension-text-style";
@@ -38,6 +39,11 @@ function Editor() {
 		onFocus: ({ editor }) => setEditor(editor),
 		onBlur: ({ editor }) => setEditor(editor),
 		onContentError: ({ editor }) => setEditor(editor),
+=======
+
+function Editor() {
+	const editor = useEditor({
+>>>>>>> 2050b34 (add(editor) : add tiptap editors and extenstions; update custom css for tiptap components)
 		extensions: [
 			StarterKit,
 			TaskItem.configure({
@@ -52,6 +58,7 @@ function Editor() {
 			TableCell,
 			Image,
 			ImageResize,
+<<<<<<< HEAD
 			Underline,
 			FontFamily,
 			TextStyle,
@@ -72,6 +79,25 @@ function Editor() {
 			OrderedList,
 		],
 		content: "Hello World!",
+=======
+		],
+		content: `
+        <table>
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <th colspan="3">Description</th>
+            </tr>
+            <tr>
+              <td>Cyndi Lauper</td>
+              <td>Singer</td>
+              <td>Songwriter</td>
+              <td>Actress</td>
+            </tr>
+          </tbody>
+        </table>
+      `,
+>>>>>>> 2050b34 (add(editor) : add tiptap editors and extenstions; update custom css for tiptap components)
 		editorProps: {
 			attributes: {
 				style: "padding-left:56px; padding-right:56px;",
