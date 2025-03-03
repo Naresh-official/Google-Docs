@@ -105,7 +105,7 @@ function Toolbar() {
 		],
 	];
 	return (
-		<div className="bg-gray-300 px-2 py-2 rounded-2xl m-2 min-h-[40px] flex items-center gap-x-1 overflow-x-auto">
+		<div className="bg-gray-300 px-4 py-2 rounded-full m-2 min-h-[40px] flex items-center gap-x-1 overflow-x-auto">
 			{/* Undo , Redo , Print */}
 			{sections?.[0].map((item) => (
 				<ToolbarButton key={item.label} {...item} />

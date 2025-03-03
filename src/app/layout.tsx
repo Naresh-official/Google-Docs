@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { Poppins } from "next/font/google";
+import { ConvexClientProvider } from "@/providers/ConvexClientProvider";
 
 const poppins = Poppins({
 	weight: ["400", "500", "600", "700"],
@@ -19,8 +20,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
+			<head>
+				<link rel="icon" type="image/svg+xml" href="/logo.svg" />
+			</head>
 			<body className={`${poppins.className} antialiased`}>
-				{children}
+				<ConvexClientProvider>{children}</ConvexClientProvider>
 			</body>
 		</html>
 	);
