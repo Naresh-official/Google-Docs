@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { UserButton } from "@clerk/clerk-react";
+import { UserButton, OrganizationSwitcher } from "@clerk/clerk-react";
 
 function HomeNavbar() {
 	return (
@@ -8,14 +8,24 @@ function HomeNavbar() {
 			<Link href="/">
 				<Image src="/logo.svg" alt="logo" width={50} height={50} />
 			</Link>
-			<UserButton
-				appearance={{
-					elements: {
-						userButtonBox: "w-10 h-10 ",
-						userButtonAvatarBox: "w-10 h-10 ",
-					},
-				}}
-			/>
+			<div>
+				<OrganizationSwitcher
+					appearance={{
+						elements: {
+							organizationSwitcherTrigger: "h-10",
+							avatarBox: "w-8 h-8",
+						},
+					}}
+				/>
+				<UserButton
+					appearance={{
+						elements: {
+							userButtonBox: "w-10 h-10 ",
+							userButtonAvatarBox: "w-10 h-10 ",
+						},
+					}}
+				/>
+			</div>
 		</nav>
 	);
 }

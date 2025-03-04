@@ -12,7 +12,6 @@ import Image from "next/image";
 import { api } from "../../convex/_generated/api";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import FullScreenLoader from "./FullScreenLoader";
 
 function DocumentCarousel() {
 	const router = useRouter();
