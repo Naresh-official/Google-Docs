@@ -24,9 +24,15 @@ import BulletList from "@tiptap/extension-bullet-list";
 import OrderedList from "@tiptap/extension-ordered-list";
 
 import useEditorStore from "@/store/useEditorStore";
+import {
+	FloatingToolbar,
+	useLiveblocksExtension,
+} from "@liveblocks/react-tiptap";
+import { Threads } from "./Threads";
 
 function Editor() {
 	const { setEditor } = useEditorStore();
+	const liveblocks = useLiveblocksExtension();
 
 	const editor = useEditor({
 		immediatelyRender: false,
@@ -39,7 +45,9 @@ function Editor() {
 		onBlur: ({ editor }) => setEditor(editor),
 		onContentError: ({ editor }) => setEditor(editor),
 		extensions: [
-			StarterKit,
+			StarterKit.configure({
+				history: false,
+			}),
 			TaskItem.configure({
 				nested: true,
 			}),
@@ -70,6 +78,8 @@ function Editor() {
 			}),
 			BulletList,
 			OrderedList,
+			// Liveblocks extension
+			liveblocks,
 		],
 		content: "Hello World!",
 		editorProps: {
@@ -83,6 +93,8 @@ function Editor() {
 		<div className="size-full overflow-x-auto px-4 print:p-0 print:bg-white print:overflow-visible">
 			<div className="min-w-max flex justify-center w-[816px] py-4 print:py-0 mx-auto print:w-full print:min-w-0">
 				<EditorContent editor={editor} />
+				<Threads editor={editor} />
+				<FloatingToolbar editor={editor} />
 			</div>
 		</div>
 	);

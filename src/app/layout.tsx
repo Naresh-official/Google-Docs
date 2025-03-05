@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import "@/styles/globals.css";
 import { Poppins } from "next/font/google";
 import { ConvexClientProvider } from "@/providers/ConvexClientProvider";
+import "@liveblocks/react-ui/styles.css";
+import "@liveblocks/react-tiptap/styles.css";
+import "@/styles/globals.css";
 
 const poppins = Poppins({
 	weight: ["400", "500", "600", "700"],

@@ -10,6 +10,10 @@ function HomeNavbar() {
 			</Link>
 			<div>
 				<OrganizationSwitcher
+					afterCreateOrganizationUrl="/"
+					afterLeaveOrganizationUrl="/"
+					afterSelectOrganizationUrl="/"
+					afterSelectPersonalUrl="/"
 					appearance={{
 						elements: {
 							organizationSwitcherTrigger: "h-10",

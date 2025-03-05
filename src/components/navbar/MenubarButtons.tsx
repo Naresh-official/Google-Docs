@@ -7,7 +7,6 @@ import {
 	MenubarShortcut,
 	MenubarTrigger,
 } from "@/components/ui/menubar";
-import { MenubarSub } from "@radix-ui/react-menubar";
 
 function MenubarButtons() {
 	return (
@@ -30,6 +29,32 @@ function MenubarButtons() {
 				</MenubarMenu>
 				<MenubarMenu>
 					<MenubarTrigger>Edit</MenubarTrigger>
+					<MenubarContent>
+						<MenubarItem>
+							New Tab <MenubarShortcut>T</MenubarShortcut>
+						</MenubarItem>
+						<MenubarItem>New Window</MenubarItem>
+						<MenubarSeparator />
+						<MenubarItem>Share</MenubarItem>
+						<MenubarSeparator />
+						<MenubarItem>Print</MenubarItem>
+					</MenubarContent>
+				</MenubarMenu>
+				<MenubarMenu>
+					<MenubarTrigger>Insert</MenubarTrigger>
+					<MenubarContent>
+						<MenubarItem>
+							New Tab <MenubarShortcut>T</MenubarShortcut>
+						</MenubarItem>
+						<MenubarItem>New Window</MenubarItem>
+						<MenubarSeparator />
+						<MenubarItem>Share</MenubarItem>
+						<MenubarSeparator />
+						<MenubarItem>Print</MenubarItem>
+					</MenubarContent>
+				</MenubarMenu>
+				<MenubarMenu>
+					<MenubarTrigger>Format</MenubarTrigger>
 					<MenubarContent>
 						<MenubarItem>
 							New Tab <MenubarShortcut>T</MenubarShortcut>

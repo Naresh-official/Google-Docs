@@ -22,6 +22,8 @@ export const create = mutation({
 	},
 });
 
+// TODO Add a search query to search for documents by title
+
 export const deleteDocumentById = mutation({
 	args: {
 		_id: v.id("documents"),
@@ -50,7 +52,10 @@ export const rename = mutation({
 			throw new Error("Unauthorized");
 		}
 		const document = await ctx.db.get(args._id);
-		if (document?.ownerId !== user.subject) {
+		if (
+			document?.ownerId !== user.subject &&
+			document?.organizationId !== user.organisation_id
+		) {
 			throw new Error("Unauthorized");
 		}
 		return await ctx.db.patch(args._id, {
