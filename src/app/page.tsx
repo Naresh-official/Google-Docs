@@ -10,7 +10,6 @@ import DocumentTable from "@/components/documentTable/DocumentTable";
 export default function Home() {
 	const documents = useQuery(api.documents.get, {});
 	if (!documents) return <FullScreenLoader label="Loading Documents..." />;
-
 	return (
 		<main className="min-h-screen">
 			<HomeNavbar />

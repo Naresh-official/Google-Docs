@@ -52,10 +52,11 @@ export const rename = mutation({
 			throw new Error("Unauthorized");
 		}
 		const document = await ctx.db.get(args._id);
-		if (
-			document?.ownerId !== user.subject &&
-			document?.organizationId !== user.organisation_id
-		) {
+		const isOwner = document?.ownerId === user.subject;
+		const isOrganizationMember =
+			document?.organizationId &&
+			document?.organizationId === user.organisation_id;
+		if (!isOwner && !isOrganizationMember) {
 			throw new Error("Unauthorized");
 		}
 		return await ctx.db.patch(args._id, {
@@ -85,5 +86,18 @@ export const get = query({
 			.withIndex("by_owner_id", (q) => q.eq("ownerId", user.subject))
 			.order("desc")
 			.collect();
+	},
+});
+
+export const getById = query({
+	args: {
+		_id: v.id("documents"),
+	},
+	handler: async (ctx, args) => {
+		const document = await ctx.db.get(args._id);
+		if (!document) {
+			throw new Error("Document not found");
+		}
+		return document;
 	},
 });
