@@ -3,20 +3,15 @@ import Navbar from "@/components/navbar/Navbar";
 import Toolbar from "@/components/toolbar/Toolbar";
 import { Room } from "@/providers/LiveBlockProvider";
 
-interface DocumentIdPageProps {
-	params: Promise<{ documentId: string }>;
-}
-
-async function DocumentIdPage({ params }: DocumentIdPageProps) {
-	const { documentId } = await params;
+async function DocumentIdPage() {
 	return (
-		<div className="min-h-screen">
-			<Room>
+		<Room>
+			<div className="min-h-screen">
 				<Navbar />
 				<Toolbar />
 				<Editor />
-			</Room>
-		</div>
+			</div>
+		</Room>
 	);
 }
 

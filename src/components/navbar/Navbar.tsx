@@ -4,6 +4,7 @@ import Link from "next/link";
 import DocumentInput from "./DocumentInput";
 import MenubarButtons from "./MenubarButtons";
 import { UserButton, OrganizationSwitcher } from "@clerk/clerk-react";
+import UserAvatars from "./UserAvatars";
 
 function Navbar() {
 	return (
@@ -17,7 +18,8 @@ function Navbar() {
 					<MenubarButtons />
 				</div>
 			</div>
-			<div>
+			<div className="flex items-center gap-2">
+				<UserAvatars />
 				<OrganizationSwitcher
 					afterCreateOrganizationUrl="/"
 					afterLeaveOrganizationUrl="/"
