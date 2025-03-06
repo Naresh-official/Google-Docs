@@ -8,7 +8,7 @@ function HomeNavbar() {
 			<Link href="/">
 				<Image src="/logo.svg" alt="logo" width={50} height={50} />
 			</Link>
-			<div>
+			<div className="flex items-center space-x-4">
 				<OrganizationSwitcher
 					afterCreateOrganizationUrl="/"
 					afterLeaveOrganizationUrl="/"

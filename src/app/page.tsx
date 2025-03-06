@@ -4,7 +4,7 @@ import HomeNavbar from "@/components/HomeNavbar";
 import { api } from "../../convex/_generated/api";
 import { useQuery } from "convex/react";
 import FullScreenLoader from "@/components/FullScreenLoader";
-import DocumentCarousel from "@/components/DocumentCarousel";
+import DocumentCarousel from "@/components/templateCarousel";
 import DocumentTable from "@/components/documentTable/DocumentTable";
 
 export default function Home() {

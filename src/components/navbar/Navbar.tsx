@@ -5,8 +5,15 @@ import DocumentInput from "./DocumentInput";
 import MenubarButtons from "./MenubarButtons";
 import { UserButton, OrganizationSwitcher } from "@clerk/clerk-react";
 import UserAvatars from "./UserAvatars";
+import { Doc } from "../../../convex/_generated/dataModel";
 
-function Navbar() {
+interface NavbarProps {
+	data: Doc<"documents">;
+}
+
+function Navbar({ data }: NavbarProps) {
+
+  
 	return (
 		<div className="flex items-center justify-between px-4">
 			<div className="flex items-center gap-4">
@@ -14,11 +21,11 @@ function Navbar() {
 					<Image src="/logo.svg" alt="logo" width={40} height={40} />
 				</Link>
 				<div className="flex flex-col gap-0">
-					<DocumentInput />
+					<DocumentInput data={data} />
 					<MenubarButtons />
 				</div>
 			</div>
-			<div className="flex items-center gap-2">
+			<div className="flex items-center h-full gap-2">
 				<UserAvatars />
 				<OrganizationSwitcher
 					afterCreateOrganizationUrl="/"

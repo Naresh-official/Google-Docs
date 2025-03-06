@@ -28,12 +28,14 @@ function RenameButton({
 	const [newTitle, setNewTitle] = useState(title);
 	const [open, setOpen] = useState(false);
 	const rename = useMutation(api.documents.rename);
+
 	function handleRename(event: React.FormEvent) {
 		event.preventDefault();
 		rename({ _id: documentId, title: newTitle });
 		closeMenu();
 		setOpen(false);
-	}
+  }
+  
 	return (
 		<DropdownMenuItem asChild>
 			<Dialog open={open} onOpenChange={setOpen}>

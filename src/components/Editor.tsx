@@ -30,9 +30,15 @@ import {
 } from "@liveblocks/react-tiptap";
 import { Threads } from "./Threads";
 
-function Editor() {
+interface EditorProps {
+	content?: string;
+}
+
+function Editor({ content }: EditorProps) {
 	const { setEditor } = useEditorStore();
-	const liveblocks = useLiveblocksExtension();
+	const liveblocks = useLiveblocksExtension({
+		initialContent: content,
+	});
 
 	const editor = useEditor({
 		immediatelyRender: false,
@@ -81,7 +87,7 @@ function Editor() {
 			// Liveblocks extension
 			liveblocks,
 		],
-		content: "Hello World!",
+		content: content || "",
 		editorProps: {
 			attributes: {
 				style: "padding-left:56px; padding-right:56px;",
