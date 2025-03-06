@@ -8,19 +8,22 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AlignLeft, AlignCenter, AlignRight, AlignJustify } from "lucide-react";
 
 function TextAlignButton() {
 	const { editor } = useEditorStore();
 	const [currentAlignment, setCurrentAlignment] = useState("left");
 
-	const alignments = [
-		{ label: "Left", value: "left", icon: AlignLeft },
-		{ label: "Center", value: "center", icon: AlignCenter },
-		{ label: "Right", value: "right", icon: AlignRight },
-		{ label: "Justify", value: "justify", icon: AlignJustify },
-	];
+	const alignments = useMemo(
+		() => [
+			{ label: "Left", value: "left", icon: AlignLeft },
+			{ label: "Center", value: "center", icon: AlignCenter },
+			{ label: "Right", value: "right", icon: AlignRight },
+			{ label: "Justify", value: "justify", icon: AlignJustify },
+		],
+		[]
+	);
 
 	useEffect(() => {
 		if (!editor) return;
@@ -44,7 +47,7 @@ function TextAlignButton() {
 			editor.off("selectionUpdate", updateAlignment);
 			editor.off("transaction", updateAlignment);
 		};
-	}, [editor]);
+	}, [editor, alignments]);
 
 	return (
 		<div>

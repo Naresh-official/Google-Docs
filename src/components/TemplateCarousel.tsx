@@ -14,7 +14,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { templates } from "@/constants/templates";
 
-function templateCarousel() {
+function TemplateCarousel() {
 	const router = useRouter();
 	const create = useMutation(api.documents.create);
 	const [isCreating, setIsCreating] = useState(false);
@@ -77,4 +77,4 @@ function templateCarousel() {
 	);
 }
 
-export default templateCarousel;
+export default TemplateCarousel;

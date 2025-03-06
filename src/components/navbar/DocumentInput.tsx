@@ -1,19 +1,19 @@
 "use client";
 
 import { CloudUpload, LoaderIcon } from "lucide-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Doc } from "../../../convex/_generated/dataModel";
 import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 
 interface DocumentInputProps {
 	data: Doc<"documents">;
+	inputRef: React.RefObject<HTMLInputElement>;
 }
 
-function DocumentInput({ data }: DocumentInputProps) {
+function DocumentInput({ data, inputRef }: DocumentInputProps) {
 	const [value, setValue] = useState<string>(data.title);
 	const [isPending, setIsPending] = useState<boolean>(false);
-	const inputRef = useRef<HTMLInputElement>(null);
 
 	const renameDocument = useMutation(api.documents.rename);
 	async function handleRename(event: React.FormEvent) {

@@ -24,6 +24,7 @@ import TextHighlightButton from "./TextHighlightButton";
 import LinkButton from "./LinkButton";
 import ImageButton from "./ImageButton";
 import TextAlignButton from "./TextAlignButton";
+import { printEditorContent } from "@/lib/printEditorContent";
 
 function Toolbar() {
 	const { editor } = useEditorStore();
@@ -47,7 +48,7 @@ function Toolbar() {
 			{
 				label: "Print",
 				icon: PrinterIcon,
-				onClick: () => window.print(),
+				onClick: () => printEditorContent(editor),
 			},
 		],
 		[

@@ -9,19 +9,22 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { type Level } from "@tiptap/extension-heading";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 function HeadingButton() {
 	const { editor } = useEditorStore();
 	const [currentHeading, setCurrentHeading] = useState("0");
 
-	const headings = [
-		{ label: "Normal", value: 0, fontSize: "16px" },
-		{ label: "Heading 1", value: 1, fontSize: "32px" },
-		{ label: "Heading 2", value: 2, fontSize: "24px" },
-		{ label: "Heading 3", value: 3, fontSize: "20px" },
-		{ label: "Heading 4", value: 4, fontSize: "18px" },
-	];
+	const headings = useMemo(
+		() => [
+			{ label: "Normal", value: 0, fontSize: "16px" },
+			{ label: "Heading 1", value: 1, fontSize: "32px" },
+			{ label: "Heading 2", value: 2, fontSize: "24px" },
+			{ label: "Heading 3", value: 3, fontSize: "20px" },
+			{ label: "Heading 4", value: 4, fontSize: "18px" },
+		],
+		[]
+	);
 
 	useEffect(() => {
 		if (!editor) return;
@@ -45,7 +48,7 @@ function HeadingButton() {
 			editor.off("selectionUpdate", updateHeading);
 			editor.off("transaction", updateHeading);
 		};
-	}, [editor]);
+	}, [editor, headings]);
 
 	return (
 		<div>

@@ -6,8 +6,8 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import useEditorStore from "@/store/useEditorStore";
-import { Baseline, Highlighter } from "lucide-react";
 import { Button } from "../ui/button";
+import { Highlighter } from "lucide-react";
 
 function TextHighlightButton() {
 	const { editor } = useEditorStore();
