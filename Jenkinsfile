@@ -63,7 +63,7 @@ pipeline {
     post {
         always {
             // Clean up workspace after build
-            cleanWs()
+            deleteDir()
         }
         success {
             echo "CI pipeline completed successfully!"
