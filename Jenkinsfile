@@ -7,7 +7,12 @@ pipeline {
 
         NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = credentials('CLERK_PUBLISHABLE_KEY')
         CLERK_SECRET_KEY = credentials('CLERK_SECRET_KEY')
+
         LIVEBLOCKS_SECRET_KEY = credentials('LIVEBLOCKS_SECRET_KEY')
+        NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY = credentials('LIVEBLOCKS_PUBLIC_KEY')
+
+        NEXT_PUBLIC_CONVEX_URL = credentials('CONVEX_URL')
+        NEXT_PUBLIC_CONVEX_SITE_URL = credentials('CONVEX_SITE_URL')
     }
 
     stages {
