@@ -6,6 +6,9 @@ pipeline {
         // NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = credentials('clerk-publishable-key')
         DOCKER_IMAGE = 'google-docs-clone'
         DOCKER_TAG = "build-${env.BUILD_NUMBER}"
+        NEXT_PUBLIC_CONVEX_URL = "https://dummy.convex.cloud"
+        NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = "pk_test_dummy"
+        NEXT_PUBLIC_LIVEBLOCKS_SECRET_KEY = "sk_test_dummy"
     }
 
     stages {
