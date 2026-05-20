@@ -4,15 +4,6 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'google-docs-clone'
         DOCKER_TAG = "build-${env.BUILD_NUMBER}"
-
-        NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = credentials('CLERK_PUBLISHABLE_KEY')
-        CLERK_SECRET_KEY = credentials('CLERK_SECRET_KEY')
-
-        LIVEBLOCKS_SECRET_KEY = credentials('LIVEBLOCKS_SECRET_KEY')
-        NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY = credentials('LIVEBLOCKS_PUBLIC_KEY')
-
-        NEXT_PUBLIC_CONVEX_URL = credentials('CONVEX_URL')
-        NEXT_PUBLIC_CONVEX_SITE_URL = credentials('CONVEX_SITE_URL')
     }
 
     stages {
@@ -23,9 +14,17 @@ pipeline {
             }
         }
 
+        stage('Load Environment File') {
+            steps {
+                withCredentials([file(credentialsId: 'ENV_FILE', variable: 'ENV_FILE_PATH')]) {
+                    sh 'cp $ENV_FILE_PATH .env'
+                }
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
-                    sh 'npm install --legacy-peer-deps'
+                sh 'npm install --legacy-peer-deps'
             }
         }
 
@@ -43,18 +42,8 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} -t ${DOCKER_IMAGE}:latest ."
+                sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
             }
-        }
-    }
-
-    post {
-        success {
-            echo "CI pipeline completed successfully!"
-        }
-
-        failure {
-            echo "CI pipeline failed. Please check the logs."
         }
     }
 }
