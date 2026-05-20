@@ -17,7 +17,10 @@ pipeline {
         stage('Load Environment File') {
             steps {
                 withCredentials([file(credentialsId: 'ENV_FILE', variable: 'ENV_FILE_PATH')]) {
-                    sh 'cp $ENV_FILE_PATH .env'
+                    sh '''
+                        rm -f .env
+                        cat $ENV_FILE_PATH > .env
+                        '''
                 }
             }
         }
