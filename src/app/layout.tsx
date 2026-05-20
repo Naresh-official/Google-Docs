@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import { ConvexClientProvider } from "@/providers/ConvexClientProvider";
 import "@liveblocks/react-ui/styles.css";
 import "@liveblocks/react-tiptap/styles.css";
 import "@/styles/globals.css";
-
-const poppins = Poppins({
-	weight: ["400", "500", "600", "700"],
-	subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
 	title: "Google Docs Clone",
@@ -25,7 +19,7 @@ export default function RootLayout({
 			<head>
 				<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 			</head>
-			<body className={`${poppins.className} antialiased`}>
+			<body className={`antialiased`}>
 				<ConvexClientProvider>{children}</ConvexClientProvider>
 			</body>
 		</html>
