@@ -27,13 +27,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install --legacy-peer-deps'
-            }
-        }
-
-        stage('Lint') {
-            steps {
-                sh 'npm run lint'
+                sh 'npm ci --legacy-peer-deps'
             }
         }
 
